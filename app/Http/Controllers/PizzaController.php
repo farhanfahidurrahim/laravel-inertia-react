@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class PizzaController extends Controller
 {
-    public function index()
+    public function index(): Response
     {
         $pizzas = Pizza::all();
 
@@ -19,7 +20,6 @@ class PizzaController extends Controller
 
     public function show()
     {
-        return Pizza::all();
     }
 
     public function create()
@@ -27,13 +27,17 @@ class PizzaController extends Controller
         return Pizza::all();
     }
 
-    public function edit()
+    public function edit(Pizza $id): Response
     {
-        return Pizza::all();
+        return Inertia::render('Pizza/Edit', [
+            'pizza' => $id,
+        ]);
     }
 
-    public function update()
+    public function update(Pizza $id, Request $request): void
     {
-        return Pizza::all();
+        $id->update([
+            'status' => $request->status,
+        ]);
     }
 }

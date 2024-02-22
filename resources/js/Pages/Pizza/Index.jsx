@@ -8,7 +8,9 @@
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
-import Table from "@/Components/Table.jsx";
+import Table from "@/Components/Table";
+
+const columns = ["size", "chef", "status"];
 
 export default function Index({ auth, pizzas }) {
     return (
@@ -26,10 +28,10 @@ export default function Index({ auth, pizzas }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <Table
+                            columns={columns}
                             items={pizzas}
-                            // columns={}
                             primary="Order Number"
-                            action=""
+                            action="pizza.edit"
                         ></Table>
                     </div>
                 </div>

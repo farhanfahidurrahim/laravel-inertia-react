@@ -31,13 +31,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/pizzas', [PizzaController::class, 'index'])->name('pizza.index');
-    Route::get('/pizzas/show/{id}', [PizzaController::class, 'show'])->name('pizza.show');
-    Route::get('/pizzas/create', [PizzaController::class, 'create'])->name('pizza.create');
-    Route::post('/pizzas/store', [PizzaController::class, 'store'])->name('pizza.store');
-    Route::get('/pizzas/edit/{id}', [PizzaController::class, 'edit'])->name('pizza.edit');
-    Route::post('/pizzas/update/{id}', [PizzaController::class, 'update'])->name('pizza.update');
-    Route::delete('/pizzas/delete/{id}', [PizzaController::class, 'delete'])->name('pizza.delete');
+    Route::get('/pizza', [PizzaController::class, 'index'])->name('pizza.index');
+    Route::get('/pizza/show/{id}', [PizzaController::class, 'show'])->name('pizza.show');
+    Route::get('/pizza/create', [PizzaController::class, 'create'])->name('pizza.create');
+    Route::post('/pizza/store', [PizzaController::class, 'store'])->name('pizza.store');
+    Route::get('/pizza/edit/{id}', [PizzaController::class, 'edit'])->name('pizza.edit');
+    Route::patch('/pizza/update/{id}', [PizzaController::class, 'update'])->name('pizza.update');
+    Route::delete('/pizza/delete/{id}', [PizzaController::class, 'delete'])->name('pizza.delete');
+    Route::delete('/pizza/show/{id}', [PizzaController::class, 'show'])->name('pizza.show');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
