@@ -18,10 +18,6 @@ class PizzaController extends Controller
         ]);
     }
 
-    public function show()
-    {
-    }
-
     public function create()
     {
         return Pizza::all();

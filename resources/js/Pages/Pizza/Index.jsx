@@ -1,11 +1,3 @@
-// export default function Index({ auth, pizzas }) {
-//     return (
-//         <div>
-//             <h1>Hii</h1>
-//         </div>
-//     );
-// }
-
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import Table from "@/Components/Table";
